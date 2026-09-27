@@ -1,16 +1,49 @@
-# React + Vite
+# BMW — Frontend Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive single-page site built for a college dev club frontend hackathon, showcasing frontend and React fundamentals: component structure, routing, live API data, and handled loading/error states.
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- React Router 
+- NHTSA vPIC API for vehicle data
 
-## React Compiler
+## Project structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+├── App.jsx                    # Routes: "/" and "/models/:modelId"
+├── index.css                  # Global tokens (colors, spacing, fonts) and reset
+├── pages/
+│   ├── Home.jsx                # Hero + Models + About
+│   ├── ModelDetail.jsx         # Model detail page
+│   └── ModelDetail.module.css
+└── components/
+    ├── Navbar.jsx / .module.css
+    ├── Hero.jsx / .module.css
+    ├── Models.jsx / .module.css
+    ├── About.jsx / .module.css
+    └── Footer.jsx / .module.css
+```
 
-## Expanding the ESLint configuration
+## Getting started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev        # Vite
+# or: npm start     # Create React App
+```
+
+## Assets
+
+A few image paths are placeholders — drop your own images at these paths before running:
+
+- `public/assets/bmw-hero.jpg` — hero background
+- `public/assets/models/placeholder.jpg` — shown on every model card and detail page (the API doesn't provide images)
+- `public/assets/about-engine.jpg` — About section image
+
+## Known limitations
+
+- The NHTSA API returns model names and IDs only — no specs, pricing, or images, so every card uses the same placeholder image.
+- Only the first 10 models from the API response are displayed.
+- Model detail pages re-fetch the full model list and filter client-side, since the API has no single-model lookup endpoint. Fine at this scale (10 models); would need a caching layer at larger scale.
