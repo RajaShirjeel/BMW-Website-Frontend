@@ -1,0 +1,72 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  background-image: url("/src/assets/bmw-hero.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 11, 14, 0.9) 0%,
+    rgba(10, 11, 14, 0.35) 55%,
+    rgba(10, 11, 14, 0.1) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-xl);
+}
+
+.heroHeadline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  max-width: 14ch;
+  margin: 0 0 var(--space-sm);
+}
+
+.heroSubtext {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 40ch;
+  margin: 0 0 var(--space-md);
+}
+
+.heroCta {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid var(--color-accent);
+}
+
+.heroCta:hover,
+.heroCta:focus-visible {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .heroHeadline {
+    max-width: 100%;
+  }
+}

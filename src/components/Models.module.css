@@ -1,0 +1,81 @@
+.models {
+  background-color: var(--color-bg);
+  padding: var(--space-xl) var(--space-md);
+}
+
+.modelsInner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.modelsHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin: 0 0 var(--space-lg);
+}
+
+.modelsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.modelCard {
+  border: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+.modelCard:hover,
+.modelCard:focus-within {
+  border-color: var(--color-accent);
+}
+
+.modelCardImage {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: var(--color-bg-alt);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: var(--space-sm);
+  background-image: url("/src/assets/placeholder.webp");
+}
+
+.modelCardName {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 0 0 var(--space-xs);
+}
+
+.modelCardTagline {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl) 0;
+}
+
+.loader {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
